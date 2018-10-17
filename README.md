@@ -14,3 +14,6 @@ To find the dmg file to run the app on a desktop mac go to TTT/dist/ttt-1.0.0.dm
 
 
 The xCode project for iOS is on "xCode project" folder then open TicTacToe.xcodeproj
+
+
+- Instrucitons on how to use electron can be found on the file "Electron tutorial.rtf"
