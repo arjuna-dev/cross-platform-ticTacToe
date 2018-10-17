@@ -1,0 +1,10 @@
+version: 1.0.0
+files:
+  - url: ttt-1.0.0-mac.zip
+    sha512: mcvGbgpzPpKQ8q8yMfInY+FGRFGY0ymEHytBU8kSgdFwheK3hq5ZAbls7+SPWQHigp6i/1xlJgOkBj99hYfA0g==
+  - url: ttt-1.0.0.dmg
+    sha512: t+TDHJfq8S8YfE7CnpC88uCD35NYfoIfmOGz4FsihW3kIinRw4clcpEiiG3kAaIIsCKx6l4usMTKyURCZk2B1A==
+    size: 49360474
+path: ttt-1.0.0-mac.zip
+sha512: mcvGbgpzPpKQ8q8yMfInY+FGRFGY0ymEHytBU8kSgdFwheK3hq5ZAbls7+SPWQHigp6i/1xlJgOkBj99hYfA0g==
+releaseDate: '2018-09-30T05:48:53.897Z'

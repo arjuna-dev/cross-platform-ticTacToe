@@ -1,0 +1,7 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.tictac.toe.app
+mac:
+  category: your.app.category.type
+electronVersion: 3.0.2
