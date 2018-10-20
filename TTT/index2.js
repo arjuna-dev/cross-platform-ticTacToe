@@ -8,6 +8,7 @@ var seven = document.getElementById('seven')
 var eight = document.getElementById('eight')
 var nine = document.getElementById('nine')
 
+
 var finalMessage = document.getElementById('final-message')
 var finalMessageContainer = document.getElementById('final-message-container')
 var playAgainButton = document.getElementById('play-again-button')
@@ -93,6 +94,18 @@ chooseP2.addEventListener("change", function(){
 })
 
 
+function verifier(){
+
+}
+
+var container = document.getElementById("sub-container")
+
+var rows = container.children;
+var inrHTML;
+
+
+var numberOfRows = document.getElementById("sub-container").childElementCount;
+
 for (i=0;i<classCell.length;i++){
     classCell[i].addEventListener('click', function toggler(){
         if (switcher==0){
@@ -106,67 +119,116 @@ for (i=0;i<classCell.length;i++){
             this.removeEventListener('click', toggler)
             switcher=0
         }
-
-        if (one.innerHTML!=''&&one.innerHTML==two.innerHTML&&two.innerHTML==three.innerHTML){
-                finalMessageContainer.style.display = "block"
-            if(one.innerHTML==p1sign){
-                finalMessage.innerText = `${chooseP1.value} wins!`
-            } else if(one.innerHTML==p2sign){
-                finalMessage.innerText = `${chooseP2.value} wins!`
-            }
-        } else if (four.innerHTML!=''&&four.innerHTML==five.innerHTML&&five.innerHTML==six.innerHTML){
-            finalMessageContainer.style.display = "block"
-            if(four.innerHTML==p1sign){                 
-                finalMessage.innerText = `${chooseP1.value} wins!`
-        } else if(four.innerHTML==p2sign){
-                finalMessage.innerText = `${chooseP2.value} wins!`
-            }
-        } else if (seven.innerHTML!=''&&seven.innerHTML==eight.innerHTML&&eight.innerHTML==nine.innerHTML){
-            finalMessageContainer.style.display = "block"
-            if(seven.innerHTML==p1sign){                 
-                finalMessage.innerText = `${chooseP1.value} wins!`             
-        } else if(seven.innerHTML==p2sign){
-                finalMessage.innerText = `${chooseP2.value} wins!`
-            }
-        } else if (one.innerHTML!=''&&one.innerHTML==four.innerHTML&&four.innerHTML==seven.innerHTML){
-            finalMessageContainer.style.display = "block"
-            if(one.innerHTML==p1sign){                 
-                finalMessage.innerText = `${chooseP1.value} wins!`             
-        } else if(one.innerHTML==p2sign){
-                finalMessage.innerText = `${chooseP2.value} wins!`
-            }
-        } else if (two.innerHTML!=''&&two.innerHTML==five.innerHTML&&five.innerHTML==eight.innerHTML){
-            finalMessageContainer.style.display = "block"
-            if(two.innerHTML==p1sign){                 
-                finalMessage.innerText = `${chooseP1.value} wins!`             
-        } else if(two.innerHTML==p2sign){
-                finalMessage.innerText = `${chooseP2.value} wins!`
-            }
-        } else if (three.innerHTML!=''&&three.innerHTML==six.innerHTML&&six.innerHTML==nine.innerHTML){
-            finalMessageContainer.style.display = "block"
-            if(three.innerHTML==p1sign){                 
-                finalMessage.innerText = `${chooseP1.value} wins!` 
-        } else if(three.innerHTML==p2sign){
-                finalMessage.innerText = `${chooseP2.value} wins!`
-            }
-        }  else if (one.innerHTML!=''&&one.innerHTML==five.innerHTML&&five.innerHTML==nine.innerHTML){
-            finalMessageContainer.style.display = "block"
-            if(one.innerHTML==p1sign){                 
-                finalMessage.innerText = `${chooseP1.value} wins!`
-        } else if(one.innerHTML==p2sign){
-                finalMessage.innerText = `${chooseP2.value} wins!`
-            }
-        }  else if (three.innerHTML!=''&&three.innerHTML==five.innerHTML&&five.innerHTML==seven.innerHTML){
-            finalMessageContainer.style.display = "block"
-            if(three.innerHTML==p1sign){                 
-            finalMessage.innerText = `${chooseP1.value} wins!`
-        } else if(three.innerHTML==p2sign){
-            finalMessage.innerText = `${chooseP2.value} wins!`
-            }
-        }  else if (one.innerHTML!=''&&two.innerHTML!=''&&three.innerHTML!=''&&four.innerHTML!=''&&five.innerHTML!=''&&six.innerHTML!=''&&seven.innerHTML!=''&&eight.innerHTML!=''&&nine.innerHTML!=''){
-            finalMessageContainer.style.display = "block"
-            finalMessage.innerText = `It's a tie!`            
+        
+        //Check for vertical wins
+        //Create matrix
+        var matrix = []        
+        var transposedMatrix = []
+            
+        for (var i = 0; i < rows.length; i++) {
+            transposedMatrix.push([])
+            matrix.push([])            
+            var columns = rows[i].children;
+            for (var j = 0; j < columns.length; j++) {
+                matrix[i].push(columns[j].className)
+          }
         }
+
+        //Check for horizontal wins
+        for(i=0;i<matrix.length;i++){  
+            var className=""
+            var counterX = 0          
+            for(j=0;j<matrix[i].length;j++){
+                if(className!="cell"&&className==matrix[i][j]){
+                    counterX+=1
+                }
+                if(counterX==2){
+                    console.log("We've got a horizontal winner");
+                    if(className=="cell o"){
+                        finalMessage.innerText = `${chooseP2.value} wins!`
+                    }else if(className=="cell x"){
+                        finalMessage.innerText = `${chooseP1.value} wins!`
+                    }
+                    finalMessageContainer.style.display = "block"
+                }
+                className=matrix[i][j]
+            }    
+        }
+        //Check for vertical wins
+        for(i=0;i<matrix.length;i++){  
+            className=""
+            var counterY = 0          
+            for(j=0;j<matrix[i].length;j++){
+                if(className!="cell"&&className==matrix[j][i]){
+                    counterY+=1
+                }
+                if(counterY==2){
+                    console.log("We've got a vertical winner");
+                    if(className=="cell o"){
+                        finalMessage.innerText = `${chooseP2.value} wins!`
+                    }else if(className=="cell x"){
+                        finalMessage.innerText = `${chooseP1.value} wins!`
+                    }
+                    finalMessageContainer.style.display = "block"
+                }
+                className=matrix[j][i]
+            }    
+        }
+        //Check for diagonal wins 1
+        className=""
+        var counterZ = 0            
+        for(i=0;i<matrix.length;i++){  
+                if(className!="cell"&&className==matrix[i][i]){
+                    counterZ+=1
+                }
+                if(counterZ==2){
+                    console.log("We've got a diagonal winner");
+                    if(className=="cell o"){
+                        finalMessage.innerText = `${chooseP2.value} wins!`
+                    }else if(className=="cell x"){
+                        finalMessage.innerText = `${chooseP1.value} wins!`
+                    }
+                    finalMessageContainer.style.display = "block"
+                }
+                className=matrix[i][i]
+        }
+        //Check for diagonal wins 2
+        className=""
+        var counterW = 0            
+        j=2;
+        for(i=0;i<matrix.length;i++){  
+            if(className!="cell"&&className==matrix[i][j]){
+                counterW+=1
+            }
+            if(counterW==2){
+                console.log("We've got a diagonal winner");
+                if(className=="cell o"){
+                    finalMessage.innerText = `${chooseP2.value} wins!`
+                }else if(className=="cell x"){
+                    finalMessage.innerText = `${chooseP1.value} wins!`
+                }
+                finalMessageContainer.style.display = "block"
+            }
+            className=matrix[i][j]
+            j--;
+        }
+
+        //Check for draw
+        var counterC = 0
+        for(i=0;i<matrix.length;i++){   
+            for(j=0;j<matrix[i].length;j++){
+                if(matrix[i][j]=='cell x'||matrix[i][j]=='cell o'){
+                    counterC += 1
+                }
+                if (counterC==9){
+                    console.log("its a draw");
+                    finalMessage.innerText = `${chooseP2.value} and ${chooseP1.value} tie!`
+                    finalMessageContainer.style.display = "block"
+                }
+            }    
+        }
+
+
 
     })
 }

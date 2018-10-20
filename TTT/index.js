@@ -20,13 +20,9 @@ app.on('ready', function(){
         slashes: true
     }))
 
-  
     globalShortcut.register('CommandOrControl+L', () => {
       console.log('CommandOrControl+L is pressed')
     })
-  
-
-
 })
 
 

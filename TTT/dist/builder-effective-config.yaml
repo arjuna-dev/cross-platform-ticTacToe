@@ -4,4 +4,4 @@ directories:
 appId: com.tictac.toe.app
 mac:
   category: your.app.category.type
-electronVersion: 3.0.2
+electronVersion: 3.0.4

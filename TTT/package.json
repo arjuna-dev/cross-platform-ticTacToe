@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "electron .",
-    "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
   "build": {
@@ -29,8 +28,8 @@
   "homepage": "https://github.com/jandrocamus/cross-platform-ticTacToe#readme",
   "dependencies": {},
   "devDependencies": {
-    "electron": "^3.0.0",
-    "electron-builder": "^20.28.4",
-    "electron-packager": "^12.2.0"
-  }
+    "electron": "^3.0.2",
+    "electron-builder": "^20.28.4"
+  },
+  "postinstall": "electron-builder install-app-deps"
 }

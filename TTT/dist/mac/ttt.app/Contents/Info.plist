@@ -45,6 +45,6 @@
     <key>NSHumanReadableCopyright</key>
     <string>Copyright © 2018 Alejandro Camus</string>
     <key>AsarIntegrity</key>
-    <string>{"checksums":{"app.asar":"ZFXbgr8W/R2LrWs1JLoS8lrfc/NXkRmgDjEpABlfAMh+aqkqpndDoA7Y9E9X3WAPyUVINJ2RysTFuKnqENpQkg==","electron.asar":"Ip/GqLJNwH9HdV4FO24ZDjAtVqEQy9hwEtIJ6eYRRqBG8I9UBqBXVCtCrkiLk/smh6650/gIEW0ly2jvqchncA=="}}</string>
+    <string>{"checksums":{"app.asar":"IgJawy2k2u6OF2MNGRMCEyuyZ71TBstdPXGeaZLpRBY2Qz8lXAzmGjometvQEZopOIsj3gir8G31XKgMbIV8RQ==","electron.asar":"Ip/GqLJNwH9HdV4FO24ZDjAtVqEQy9hwEtIJ6eYRRqBG8I9UBqBXVCtCrkiLk/smh6650/gIEW0ly2jvqchncA=="}}</string>
   </dict>
 </plist>
